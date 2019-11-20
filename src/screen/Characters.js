@@ -1,5 +1,7 @@
 import React from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
+
 import Card from "../components/Card"
 
 class Characters extends React.Component {
@@ -17,12 +19,13 @@ class Characters extends React.Component {
       <div>
         Characters
         {this.state.characters.map((character, index) => (
-          <Card
-            key={index}
-            name={character.name}
-            image={character.image}
-            id={character.id}
-          />
+          <Link key={index} to={`/character/${character.id}`}>
+            <Card
+              name={character.name}
+              image={character.image}
+              id={character.id}
+            />
+          </Link>
         ))}
       </div>
     )
